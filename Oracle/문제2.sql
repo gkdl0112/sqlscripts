@@ -1,0 +1,35 @@
+--문제2 제출자 이성구
+
+--1)
+SELECT custom_id,name,email FROM "TBL_CUSTOM#" tc WHERE NAME = '이나나';
+
+--2)
+SELECT pname,price FROM "TBL_PRODUCT#" tp WHERE price >= 100000;
+
+--3)
+SELECT CATEGORY ,AVG(PRICE) AVERAGE FROM "TBL_PRODUCT#" tp 
+GROUP BY CATEGORY 
+ORDER BY CATEGORY ;
+
+--4)
+SELECT  tb.BUY_SEQ ,tb.CUSTOM_ID ,tb.PCODE ,tb.QUANTITY ,tb.BUY_DATE 
+FROM "TBL_CUSTOM#" tc , "TBL_BUY#" tb 
+WHERE tc.CUSTOM_ID = tb.CUSTOM_ID 
+AND tb.CUSTOM_ID = 'twice';
+
+--5)
+SELECT tc.CUSTOM_ID ,tc.NAME, tc.AGE, tb.QUANTITY  
+FROM "TBL_CUSTOM#" tc , "TBL_BUY#" tb 
+WHERE tc.CUSTOM_ID = tb.CUSTOM_ID 
+AND pcode = 'DOWON123a'
+
+--6)
+SELECT tb.BUY_SEQ ,tb.CUSTOM_ID ,tb.PCODE ,tb.QUANTITY  FROM "TBL_CUSTOM#" tc , "TBL_BUY#" tb 
+WHERE tc.CUSTOM_ID = tb.CUSTOM_ID 
+AND tb.BUY_DATE = '2022-02-11';
+
+--7)
+SELECT pcode,SUM(quantity) FROM "TBL_BUY#" tb 
+GROUP BY PCODE ;
+
+

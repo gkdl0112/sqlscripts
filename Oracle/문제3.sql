@@ -1,0 +1,24 @@
+--문제3 제출자 이성구
+
+
+--1)
+INSERT INTO TBL_POSTCODE (postcode,area1) VALUES ('137964','서울특별시 서초구 서초2동');
+INSERT INTO TBL_POSTCODE (postcode,area1) VALUES ('138761','서울특별시 송파구 장지동 409880');
+INSERT INTO TBL_POSTCODE (postcode,area1) VALUES ('412510','경기도 고양시 덕양구 벽제동');
+INSERT INTO TBL_POSTCODE (postcode,area1) VALUES ('409880','인천광역시 옹진군 자월면');
+
+
+--2)
+UPDATE "TBL_CUSTOM#" SET POSTCODE ='137964' WHERE CUSTOM_ID = 'mina012';
+UPDATE "TBL_CUSTOM#" SET POSTCODE ='412510' WHERE CUSTOM_ID = 'hongGD';
+UPDATE "TBL_CUSTOM#" SET POSTCODE ='409880' WHERE CUSTOM_ID = 'wonder';
+UPDATE "TBL_CUSTOM#" SET POSTCODE ='138761' WHERE CUSTOM_ID = 'sana';
+
+--3)
+CREATE VIEW v_custom_info
+AS 
+SELECT custom_id,tp.POSTCODE ,AREA1 
+FROM TBL_POSTCODE tp ,"TBL_CUSTOM#" tc 
+WHERE tp.POSTCODE = tc.POSTCODE ;
+
+SELECT * FROM v_custom_info;
